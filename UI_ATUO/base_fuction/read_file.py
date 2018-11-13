@@ -3,15 +3,19 @@
 import xlrd,os
 class GetData():
     def get_dir(self):
+        '''获取数据地址'''
         data_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        return data_dir
+        dir_list = (os.path.join(data_dir,'data_file'),)
+        return "/".join(dir_list)
+
     def getFile(self,index):
-        with open(self.get_dir()+'/data_file/') as f:
+        '''通过索引读取txt文件'''
+        with open(self.get_dir()+"/") as f:
             datas = f.readlines()
-            return datas[index]
+            return datas[index].strip()
 
     def getExcel(self,rowvalue,celvalue):
-        with xlrd.open_workbook(self.get_dir()+'/data_file/') as e:
+        with xlrd.open_workbook(self.get_dir()+'/;') as e:
             sheet = e.sheet_by_index(0)
             return sheet.cell_value(rowvalue,celvalue)
 
@@ -24,4 +28,5 @@ class GetData():
                 rows.append(list(sheet.row_values(row,0,sheet.ncols)))
 
             return rows
+
 
