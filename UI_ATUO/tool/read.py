@@ -20,7 +20,7 @@ class GetData():
             return sheet.cell_value(rowvalue,celvalue)
 
     def getExcels(self):
-        with xlrd.open_workbook(self.get_dir()+'/data_file/login.xlsx','wb') as e:
+        with xlrd.open_workbook(self.get_dir()+'/login.xlsx','wb') as e:
             sheet = e.sheet_by_index(0)
             rows = []
             for row in range(1,sheet.nrows):

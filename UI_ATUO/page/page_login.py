@@ -3,19 +3,22 @@
 from selenium.webdriver.common.by import By
 class Page_Login():
     '''页面的元素'''
-    def out_login_button(self):
-        out_button = (By.LINK_TEXT,'登录')
-        return out_button
-    def username(self):
-        usrname = (By.ID,'logusername')
-        return usrname
-    def password(self):
-        pwd = (By.ID,'logpassword')
-        return pwd
-    def inner_login(self):
-        inner_button = (By.XPATH,"//a[@class='login-button logReg_btn1']")
-        return inner_button
+    def clikc_login_loc(self):
+        '''登录'''
+        return (By.LINK_TEXT,'登录')
+    def user_login_loc(self):
+        return (By.ID,"TANGRAM__PSP_10__footerULoginBtn")
 
-    def get_error(self):
-        error = (By.CLASS_NAME,'error-mes')
-        return error
+    def username_loc(self):
+        return (By.ID,'TANGRAM__PSP_10__userName')
+
+    def password_loc(self):
+        return (By.ID,"TANGRAM__PSP_10__password")
+
+    def login_button_loc(self):
+        return (By.ID,"TANGRAM__PSP_10__submit")
+
+    def error_text_loc(self):
+        return (By.ID,"TANGRAM__PSP_10__error")
+
+
